@@ -10,10 +10,8 @@ export class Feedback extends Component {
     neutral: 0,
     bad: 0,
   };
-  increment = statistic => {
-    this.setState(prevState => ({
-      [statistic]: prevState[statistic] + 1,
-    }));
+  onLeaveFeedback = options => {
+    this.setState(options);
   };
   countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
@@ -37,7 +35,10 @@ export class Feedback extends Component {
     return (
       <>
         <Section title="Plase leave feedback">
-          <FeedbackOptions onLeaveFeedback={this.increment} />
+          <FeedbackOptions
+            onLeaveFeedback={this.onLeaveFeedback}
+            options={this.state}
+          />
         </Section>
         <Section title="Statistics">
           {total ? (
