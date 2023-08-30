@@ -26,4 +26,9 @@ img {
     object-fit: cover;
     height: auto;
 }
+button {
+  text-transform: capitalize;
+  padding: ${props => props.theme.spasing(2)};
+
+}
 `;

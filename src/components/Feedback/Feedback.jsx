@@ -10,9 +10,12 @@ export class Feedback extends Component {
     neutral: 0,
     bad: 0,
   };
-  onLeaveFeedback = options => {
-    this.setState(options);
+  onLeaveFeedback = option => {
+    this.setState(prevState => ({
+      [option]: prevState[option] + 1,
+    }));
   };
+
   countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
     return good + neutral + bad;
